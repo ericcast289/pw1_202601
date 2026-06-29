@@ -1,0 +1,101 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    background:#222;
+    color:white;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.menu ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(#00aaff,#0044aa);
+    color:white;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    margin:20px 0;
+}
+
+.hero button{
+    padding:10px 20px;
+    border:none;
+    background:white;
+    color:#0044aa;
+    font-weight:bold;
+}
+
+.precios{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.contenedor-tarjetas{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:30px;
+}
+
+.tarjeta{
+    width:300px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.tarjeta img{
+    width:100%;
+}
+
+.tarjeta h3{
+    margin:15px 0;
+}
+
+.tarjeta p{
+    padding:0 15px;
+}
+
+.tarjeta h4{
+    color:#0044aa;
+    margin:15px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}

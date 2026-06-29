@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plan de Estudio Interactivo</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f4f6f8;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.materia {
+  width: 180px;
+  padding: 10px;
+  margin: 10px;
+  background: #dcdde1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.activo {
+  background: #2c3e50;
+  color: white;
+}
+
+.requisito {
+  background: #e74c3c;
+  color: white;
+}
+
+.desbloqueado {
+  background: #27ae60;
+  color: white;
+}
+
+.semestre {
+  display: flex;
+  flex-direction: column;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Plan de Estudio - Ingeniería en Ciencias de la Computación</h1>
+
+<div class="contenedor">
+
+  <!-- SEMESTRE 1 -->
+  <div class="semestre">
+    <h3>I</h3>
+
+    <div class="materia"
+         id="intro"
+         data-prerrequisitos=""
+         data-desbloquea="fundamentos">
+      Introducción a la CC
+    </div>
+
+    <div class="materia"
+         id="mate1"
+         data-prerrequisitos=""
+         data-desbloquea="precalculo">
+      Matemáticas
+    </div>
+
+    <div class="materia"
+         id="espanol"
+         data-prerrequisitos=""
+         data-desbloquea="expresion">
+      Español
+    </div>
+
+  </div>
+
+  <!-- SEMESTRE 2 -->
+  <div class="semestre">
+    <h3>II</h3>
+
+    <div class="materia"
+         id="fundamentos"
+         data-prerrequisitos="intro"
+         data-desbloquea="prog1">
+      Fundamentos de Programación
+    </div>
+
+    <div class="materia"
+         id="precalculo"
+         data-prerrequisitos="mate1"
+         data-desbloquea="calculo1">
+      Pre Cálculo
+    </div>
+
+    <div class="materia"
+         id="expresion"
+         data-prerrequisitos="espanol"
+         data-desbloquea="">
+      Expresión Oral
+    </div>
+
+  </div>
+
+  <!-- SEMESTRE 3 -->
+  <div class="semestre">
+    <h3>III</h3>
+
+    <div class="materia"
+         id="prog1"
+         data-prerrequisitos="fundamentos"
+         data-desbloquea="prog2">
+      Programación Estructurada I
+    </div>
+
+    <div class="materia"
+         id="calculo1"
+         data-prerrequisitos="precalculo"
+         data-desbloquea="calculo2">
+      Cálculo I
+    </div>
+
+  </div>
+
+  <!-- SEMESTRE 4 -->
+  <div class="semestre">
+    <h3>IV</h3>
+
+    <div class="materia"
+         id="prog2"
+         data-prerrequisitos="prog1"
+         data-desbloquea="prog3">
+      Programación Estructurada II
+    </div>
+
+    <div class="materia"
+         id="calculo2"
+         data-prerrequisitos="calculo1"
+         data-desbloquea="">
+      Cálculo II
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const materias = document.querySelectorAll('.materia');
+
+materias.forEach(materia => {
+  materia.addEventListener('click', () => {
+
+    // Limpiar estilos
+    materias.forEach(m => {
+      m.classList.remove('activo', 'requisito', 'desbloqueado');
+    });
+
+    // Marcar seleccionada
+    materia.classList.add('activo');
+
+    // Obtener atributos
+    let prerequisitos = materia.dataset.prerrequisitos;
+    let desbloquea = materia.dataset.desbloquea;
+
+    prerequisitos = prerequisitos ? prerequisitos.split(',') : [];
+    desbloquea = desbloquea ? desbloquea.split(',') : [];
+
+    // Marcar requisitos
+    prerequisitos.forEach(id => {
+      let el = document.getElementById(id.trim());
+      if (el) el.classList.add('requisito');
+    });
+
+    // Marcar desbloqueados
+    desbloquea.forEach(id => {
+      let el = document.getElementById(id.trim());
+      if (el) el.classList.add('desbloqueado');
+    });
+
+  });
+});
+</script>
+
+</body>
+</html>

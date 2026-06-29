@@ -1,0 +1,87 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo JSON y Ciclos en JavaScript</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+}
+
+#contenedor{
+    width:400px;
+    margin:auto;
+}
+
+.tarjeta{
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Lista de Estudiantes</h1>
+
+<div id="contenedor"></div>
+
+<script>
+
+// Estructura JSON
+let estudiantes = [
+{
+    nombre: "Ana",
+    edad: 20,
+    carrera: "Ingeniería"
+},
+{
+    nombre: "Luis",
+    edad: 22,
+    carrera: "Medicina"
+},
+{
+    nombre: "Carlos",
+    edad: 19,
+    carrera: "Derecho"
+},
+{
+    nombre: "María",
+    edad: 21,
+    carrera: "Arquitectura"
+}
+];
+
+// Obtener contenedor
+let contenedor = document.getElementById("contenedor");
+
+// Ciclo para recorrer el JSON
+for(let i = 0; i < estudiantes.length; i++){
+
+    let estudiante = estudiantes[i];
+
+    contenedor.innerHTML += `
+        <div class="tarjeta">
+            <p><b>Nombre:</b> ${estudiante.nombre}</p>
+            <p><b>Edad:</b> ${estudiante.edad}</p>
+            <p><b>Carrera:</b> ${estudiante.carrera}</p>
+        </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,44 @@
+body{
+    font-family: Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f4f4;
+}
+
+.carousel{
+    width:300px;
+    overflow:hidden;
+    position:relative;
+}
+
+.carousel-track{
+    display:flex;
+    transition: transform 0.5s ease;
+}
+
+.slide{
+    min-width:300px;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    background:#53c9f1;
+    color:white;
+}
+
+button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:black;
+    color:white;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+
+.prev{ left:0; }
+.next{ right:0; }
